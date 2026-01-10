@@ -1,11 +1,12 @@
 import { cart } from "../data/cart.js";
 import { formatCurrency } from "./utils/money.js";
+import { products } from "../data/products.js";
 let cartSummaryHTML = '';
-
+let matchingProduct ;
 cart.forEach( (cartItem) => {
     let productId = cartItem.id; 
 
-    let matchingProduct ;
+    
     
     products.forEach((product) => {
       if (product.id === productId){
@@ -93,7 +94,7 @@ cart.forEach( (cartItem) => {
 });
 
 
-document.querySelectorAll('js-order-summary').innerHTML += cartSummaryHTML;
+document.querySelectorAll('js-order-summary').innerHTML = cartSummaryHTML;
 document.querySelectorAll('.link-delete-link').forEach((link) => {link.addEventListener('click',()=>{
   const productId = link.dataset.productId;
   console.log(productId);
