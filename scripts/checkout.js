@@ -3,17 +3,17 @@ import { formatCurrency } from "./utils/money.js";
 import { products } from "../data/products.js";
 let cartSummaryHTML = '';
 let matchingProduct ;
-cart.forEach( (cartItem) => {
-    let productId = cartItem.id; 
+cart.forEach((cartItem) => {
+ 
+  const productId = cartItem.productId; 
 
-    
-    
-    products.forEach((product) => {
-      if (product.id === productId){
-        matchingProduct = product;
+  let matchingProduct;
 
-      }
-    });
+  products.forEach((product) => {
+    if (product.id === productId) {
+      matchingProduct = product;
+    }
+  });
     cartSummaryHTML+=
     ` <div class="cart-item-container">
             <div class="delivery-date">
@@ -94,7 +94,7 @@ cart.forEach( (cartItem) => {
 });
 
 
-document.querySelectorAll('js-order-summary').innerHTML = cartSummaryHTML;
+document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
 document.querySelectorAll('.link-delete-link').forEach((link) => {link.addEventListener('click',()=>{
   const productId = link.dataset.productId;
   console.log(productId);
