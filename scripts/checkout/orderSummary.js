@@ -45,7 +45,7 @@ cart.forEach((cartItem) => {
                   ${matchingProduct.name}
                 </div>
                 <div class="product-price">
-                  ₹${matchingProduct.pricePaise / 100}
+                  ₹${matchingProduct.getPrice()}
                 </div>
                 <div class="product-quantity">
                   <span>
